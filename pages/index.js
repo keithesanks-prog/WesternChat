@@ -210,12 +210,28 @@ export default function Home() {
           
           {/* All interactive content below the wood frame */}
           <div style={{ position: "relative", zIndex: 10 }}>
+            {/* Black backdrop - slightly larger than chat box, behind it */}
+            <div
+              style={{
+                position: "absolute",
+                top: "-40px",
+                left: "-40px",
+                right: "-40px",
+                bottom: "-40px",
+                backgroundColor: "black",
+                borderRadius: "8px",
+                boxShadow: "0 0 20px rgba(0,0,0,0.5)",
+                zIndex: 1,
+              }}
+            />
+            
             <div
               style={{
                 background: "linear-gradient(135deg, #f4e4bc 0%, #e8d5a3 100%)",
                 padding: "1.5rem",
                 boxShadow: "inset 0 0 30px rgba(139,69,19,0.1)",
                 position: "relative",
+                zIndex: 2,
               }}
             >
               {/* Wood grain effect */}
