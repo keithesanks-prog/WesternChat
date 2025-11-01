@@ -186,49 +186,63 @@ export default function Home() {
         {/* Saloon Chat Window */}
         <div
           style={{
-            padding: "25px",
-            backgroundImage: "url('/images/WoodBorder.png')",
-            backgroundSize: "100% 100%",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
+            padding: "200px 100px",
             boxShadow: "0 10px 40px rgba(0,0,0,0.5)",
             position: "relative",
           }}
         >
-          <div
-            style={{
-              background: "linear-gradient(135deg, #f4e4bc 0%, #e8d5a3 100%)",
-              padding: "1.5rem",
-              boxShadow: "inset 0 0 30px rgba(139,69,19,0.1)",
-              position: "relative",
-            }}
-          >
-          {/* Wood grain effect */}
+          {/* Wood frame overlay - positioned on top */}
           <div
             style={{
               position: "absolute",
               top: 0,
               left: 0,
               right: 0,
-              height: "100%",
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h100v100H0z' fill='%23d4af37' fill-opacity='0.03'/%3E%3Cpath d='M0 20h100v2H0z' fill='%238B4513' fill-opacity='0.05'/%3E%3Cpath d='M0 40h100v2H0z' fill='%238B4513' fill-opacity='0.05'/%3E%3Cpath d='M0 60h100v2H0z' fill='%238B4513' fill-opacity='0.05'/%3E%3Cpath d='M0 80h100v2H0z' fill='%238B4513' fill-opacity='0.05'/%3E%3C/svg%3E")`,
+              bottom: 0,
+              backgroundImage: "url('/images/wood_frame.png'), url('/images/WoodBorder.png')",
+              backgroundSize: "400% 800%, cover",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
               pointerEvents: "none",
+              zIndex: 50,
             }}
           />
+          
+          {/* All interactive content below the wood frame */}
+          <div style={{ position: "relative", zIndex: 10 }}>
+            <div
+              style={{
+                background: "linear-gradient(135deg, #f4e4bc 0%, #e8d5a3 100%)",
+                padding: "1.5rem",
+                boxShadow: "inset 0 0 30px rgba(139,69,19,0.1)",
+                position: "relative",
+              }}
+            >
+              {/* Wood grain effect */}
+              <div
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  height: "100%",
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h100v100H0z' fill='%23d4af37' fill-opacity='0.03'/%3E%3Cpath d='M0 20h100v2H0z' fill='%238B4513' fill-opacity='0.05'/%3E%3Cpath d='M0 40h100v2H0z' fill='%238B4513' fill-opacity='0.05'/%3E%3Cpath d='M0 60h100v2H0z' fill='%238B4513' fill-opacity='0.05'/%3E%3Cpath d='M0 80h100v2H0z' fill='%238B4513' fill-opacity='0.05'/%3E%3C/svg%3E")`,
+                  pointerEvents: "none",
+                }}
+              />
 
-          <div
-            style={{
-              border: "3px solid #8B4513",
-              padding: "1.5rem",
-              minHeight: "400px",
-              maxHeight: "600px",
-              overflowY: "auto",
-              backgroundColor: "rgba(244, 228, 188, 0.8)",
-              boxShadow: "inset 0 0 20px rgba(139,69,19,0.2)",
-              position: "relative",
-              zIndex: 1,
-            }}
-          >
+              <div
+                style={{
+                  border: "3px solid #8B4513",
+                  padding: "1.5rem",
+                  minHeight: "400px",
+                  maxHeight: "600px",
+                  overflowY: "auto",
+                  backgroundColor: "rgba(244, 228, 188, 0.8)",
+                  boxShadow: "inset 0 0 20px rgba(139,69,19,0.2)",
+                  position: "relative",
+                }}
+              >
             {messages.length === 0 ? (
               <div style={{ textAlign: "center", color: "#5D4037", padding: "2rem", fontStyle: "italic" }}>
                 <p style={{ fontSize: "1.2rem", marginBottom: "1rem" }}>🤠 Howdy, partner!</p>
@@ -271,11 +285,11 @@ export default function Home() {
                 <p>🤠 SheriffGPT is thinkin'...</p>
               </div>
             )}
-            <div ref={messagesEndRef} />
-          </div>
+                <div ref={messagesEndRef} />
+              </div>
 
-          {/* Input Form */}
-          <form onSubmit={sendMessage} style={{ marginTop: "1.5rem", display: "flex", gap: "0.75rem" }}>
+              {/* Input Form */}
+              <form onSubmit={sendMessage} style={{ marginTop: "1.5rem", display: "flex", gap: "0.75rem", position: "relative", zIndex: 100 }}>
             <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
@@ -331,6 +345,7 @@ export default function Home() {
               {isLoading ? "..." : "Draw!"}
             </button>
           </form>
+            </div>
           </div>
         </div>
 

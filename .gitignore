@@ -26,6 +26,10 @@ yarn-error.log*
 .env*.local
 .env
 
+# Generated images
+wood_frame_green.png
+wood_frame.png
+
 # Vercel
 .vercel
 

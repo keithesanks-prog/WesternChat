@@ -127,6 +127,24 @@ Custom HTML document with western-themed fonts:
 
 ## 🎨 Customization
 
+### Generating a Custom Wood Frame
+
+The project includes scripts to generate and process a wood frame image:
+
+1. **Generate the wood frame** (requires Gemini API key):
+   ```bash
+   npm run generate-frame
+   ```
+   This creates `wood_frame_green.png` with a green background
+
+2. **Remove the background** to make it transparent:
+   ```bash
+   npm run process-frame
+   ```
+   This creates `public/images/wood_frame.png` with a transparent background
+
+The processed frame will automatically be used in the chat interface!
+
 ### Changing the Background
 
 Replace `public/images/BurntParchment.png` with your own image.
