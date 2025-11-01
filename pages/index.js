@@ -117,14 +117,16 @@ export default function Home() {
         backgroundRepeat: "no-repeat",
         backgroundAttachment: "fixed",
         minHeight: "100vh",
+        width: "100%",
         padding: "2rem",
+        paddingBottom: "4rem",
         fontFamily: "'Special Elite', monospace",
         position: "relative",
-        overflow: "hidden",
+        overflow: "visible",
       }}
     >
 
-      <div style={{ maxWidth: 800, margin: "auto", position: "relative", zIndex: 1 }}>
+      <div style={{ maxWidth: 800, margin: "auto", position: "relative", zIndex: 1, overflow: "visible" }}>
         {/* Wanted Poster Header */}
         <div
           style={{
@@ -189,18 +191,19 @@ export default function Home() {
             padding: "200px 100px",
             boxShadow: "0 10px 40px rgba(0,0,0,0.5)",
             position: "relative",
+            overflow: "visible",
           }}
         >
-          {/* Wood frame overlay - positioned on top */}
+          {/* Wood frame overlay - positioned on top, extends beyond container */}
           <div
             style={{
               position: "absolute",
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
+              top: "-150px",
+              left: "-150px",
+              right: "-150px",
+              bottom: "-150px",
               backgroundImage: "url('/images/wood_frame.png'), url('/images/WoodBorder.png')",
-              backgroundSize: "400% 800%, cover",
+              backgroundSize: "contain",
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
               pointerEvents: "none",
@@ -214,10 +217,10 @@ export default function Home() {
             <div
               style={{
                 position: "absolute",
-                top: "-40px",
-                left: "-40px",
-                right: "-40px",
-                bottom: "-40px",
+                top: "-100px",
+                left: "-100px",
+                right: "-100px",
+                bottom: "-150px",
                 backgroundColor: "black",
                 borderRadius: "8px",
                 boxShadow: "0 0 20px rgba(0,0,0,0.5)",
